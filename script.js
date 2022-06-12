@@ -1,4 +1,6 @@
 // 
+let playerScore = 0
+let computerScore = 0
 
 function computerPlay() {
     // randomly return Rock Paper or Scissors
@@ -19,45 +21,25 @@ function playRound(playerSelection, computerSelection) {
     //compare the two and determine the winner
     playerSelection = prompt("Enter 'Rock' 'Paper' or 'Scissors'");
     computerSelection = computerPlay();
+
     console.log("Your " + playerSelection + " Vs. Opponent's " + computerSelection)
 
-    switch (playerSelection) {
-        case 'Rock':
-            if (computerSelection = 'Rock') {
-                return console.log("It's A Tie!");
-            } else if (computerSelection = 'Paper') {
-                return console.log("You Lose!");
-            } else if (computerSelection = 'Scissors') {
-                return console.log("You Win!");
-            }
-            console.log("Case Rock")
-            break;
+    if (playerSelection == 'Rock' && (computerSelection == 'Scissors')
+        || (playerSelection == 'Paper') && (computerSelection == 'Rock')
+        || (playerSelection == 'Scissors') && (computerSelection == 'Paper')) {
+        playerScore++;
+        return console.log("You Win! Score: You " + playerScore + " Cpu " + computerScore);
 
-        case 'Paper':
-            if (computerSelection = 'Rock') {
-                return console.log("You Win");
-            } else if (computerSelection = 'Paper') {
-                return console.log("It's A Tie!");
-            } else if (computerSelection = 'Scissors') {
-                return console.log("You Lose!");
-            }
-            console.log("Case Paper")
-            break;
-
-
-        case 'Scissors':
-            if (computerSelection = 'Rock') {
-                return console.log("You Lose!");
-            } else if (computerSelection = 'Paper') {
-                return console.log("You Win!");
-            } else if (computerSelection = 'Scissors') {
-                return console.log("It's A Tie!");
-            }
-            console.log("Case Scissors")
-            break;
-
+    } else if (playerSelection == 'Rock' && (computerSelection == 'Paper')
+        || (playerSelection == 'Paper') && (computerSelection == 'Scissors')
+        || (playerSelection == 'Scissors') && (computerSelection == 'Rock')) {
+        computerScore++;
+        return console.log("You Lose! Score: You " + playerScore + " Cpu " + computerScore);
+    } else if (playerSelection == 'Rock' && (computerSelection == 'Rock')
+        || (playerSelection == 'Paper') && (computerSelection == 'Paper')
+        || (playerSelection == 'Scissors') && (computerSelection == 'Scissors')) {
+        return console.log("You Tie! Score: You " + playerScore + " Cpu " + computerScore)
+    } else {
+        return console.log("Invalid Input!")
     }
 }
-
-playRound()
-
