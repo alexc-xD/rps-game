@@ -28,18 +28,18 @@ function playRound(playerSelection, computerSelection) {
         || (playerSelection == 'Paper') && (computerSelection == 'Rock')
         || (playerSelection == 'Scissors') && (computerSelection == 'Paper')) {
         playerScore++;
-        return console.log("You Win! Score: You " + playerScore + " Cpu " + computerScore);
+        return "You Win! Score: You " + playerScore + " Cpu " + computerScore
 
     } else if (playerSelection == 'Rock' && (computerSelection == 'Paper')
         || (playerSelection == 'Paper') && (computerSelection == 'Scissors')
         || (playerSelection == 'Scissors') && (computerSelection == 'Rock')) {
         computerScore++;
-        return console.log("You Lose! Score: You " + playerScore + " Cpu " + computerScore);
+        return "You Lose! Score: You " + playerScore + " Cpu " + computerScore
     } else if (playerSelection == 'Rock' && (computerSelection == 'Rock')
         || (playerSelection == 'Paper') && (computerSelection == 'Paper')
         || (playerSelection == 'Scissors') && (computerSelection == 'Scissors')) {
-        return console.log("You Tie! Score: You " + playerScore + " Cpu " + computerScore)
+        return "You Tie! Score: You " + playerScore + " Cpu " + computerScore
     } else {
-        return console.log("Invalid Input!")
+        return "Invalid Input!"
     }
 }
