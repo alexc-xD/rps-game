@@ -3,6 +3,7 @@ let playerScore = 0
 let computerScore = 0
 
 const score = document.querySelector('#score');
+const GAMESTATUS = document.querySelector('#status');
 
 function computerPlay() {
     // randomly return Rock Paper or Scissors
@@ -23,31 +24,34 @@ function playRound(playerSelection, computerSelection) {
     //compare the two and determine the winner
     //    playerSelection = prompt("Enter 'Rock' 'Paper' or 'Scissors'");
     //playerSelection = arguments[0];
-    computerSelection = computerPlay();
+        computerSelection = computerPlay();
 
-    console.log("Your " + playerSelection + " Vs. Opponent's " + computerSelection)
+        console.log("Your " + playerSelection + " Vs. Opponent's " + computerSelection)
 
-    if (playerSelection == 'Rock' && (computerSelection == 'Scissors')
-        || (playerSelection == 'Paper') && (computerSelection == 'Rock')
-        || (playerSelection == 'Scissors') && (computerSelection == 'Paper')) {
-        playerScore++;
-        console.log("You Win! Score: You " + playerScore + " Cpu " + computerScore)
-        score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
+        if (playerSelection == 'Rock' && (computerSelection == 'Scissors')
+            || (playerSelection == 'Paper') && (computerSelection == 'Rock')
+            || (playerSelection == 'Scissors') && (computerSelection == 'Paper')) {
+            playerScore++;
+            GAMESTATUS.textContent = "You Win! Score: You " + playerScore + " Cpu " + computerScore
+            score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
 
-    } else if (playerSelection == 'Rock' && (computerSelection == 'Paper')
-        || (playerSelection == 'Paper') && (computerSelection == 'Scissors')
-        || (playerSelection == 'Scissors') && (computerSelection == 'Rock')) {
-        computerScore++;
-        console.log("You Lose! Score: You " + playerScore + " Cpu " + computerScore)
-        score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
-    } else if (playerSelection == 'Rock' && (computerSelection == 'Rock')
-        || (playerSelection == 'Paper') && (computerSelection == 'Paper')
-        || (playerSelection == 'Scissors') && (computerSelection == 'Scissors')) {
-        console.log("You Tie! Score: You " + playerScore + " Cpu " + computerScore)
-        score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
-    } else {
-        console.log("Invalid Input!")
-    }
+        } else if (playerSelection == 'Rock' && (computerSelection == 'Paper')
+            || (playerSelection == 'Paper') && (computerSelection == 'Scissors')
+            || (playerSelection == 'Scissors') && (computerSelection == 'Rock')) {
+            computerScore++;
+            GAMESTATUS.textContent = "You Lose! Score: You " + playerScore + " Cpu " + computerScore
+            score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
+
+        } else if (playerSelection == 'Rock' && (computerSelection == 'Rock')
+            || (playerSelection == 'Paper') && (computerSelection == 'Paper')
+            || (playerSelection == 'Scissors') && (computerSelection == 'Scissors')) {
+            GAMESTATUS.textContent = "You Tie! Score: You " + playerScore + " Cpu " + computerScore
+            score.textContent = "Score: You " + playerScore + " Cpu " + computerScore
+
+        } else {
+            console.log("Invalid Input!")
+        }
+
 }
 
 const rock = document.querySelector('#rock');
